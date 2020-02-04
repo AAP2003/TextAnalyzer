@@ -6,14 +6,11 @@ public class Flesch {
 	}
 
 	public double getReadabilityScore() {
-		int numSyllables = text.countSyllables();
-		int numWords = text.countWords();
-		int numSentences = text.countSentences();
+		double numSyllables = text.countSyllables();
+		double numWords = text.countWords();
+		double numSentences = text.countSentences();
 
-		double avgWordLength = numSyllables / numWords;
-		double avgSentenceLength = numWords / numSentences;
-
-		return 206.835 - (avgSentenceLength * 1.015 + avgWordLength * 84.6);
+		return 206.835 - (numWords / numSentences * 1.015) - (numSyllables / numWords * 84.6);
 	}
 }
 
