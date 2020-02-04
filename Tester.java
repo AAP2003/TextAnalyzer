@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.Scanner;
 
 public class Tester {
 	private JFrame frame;
@@ -11,6 +12,11 @@ public class Tester {
 	}
 
 	public static void main(String[] args) {
-		new Tester();
+		TextAnalyzer analyze = new TextAnalyzer("test_files\\Gettysburg.txt");
+
+		System.out.println(analyze.getFlesch().getReadabilityScore());
+
+		//new Tester();
 	}
 }
+
