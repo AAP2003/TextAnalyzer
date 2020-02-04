@@ -1,8 +1,6 @@
-public class Flesch {
-	public TextAnalyzer text;
-
+public class Flesch extends ReadabilitryScorer {
 	public Flesch(TextAnalyzer text) {
-		this.text = text;
+		super(text);
 	}
 
 	public double getReadabilityScore() {
