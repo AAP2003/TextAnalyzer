@@ -38,6 +38,10 @@ public class TextAnalyzer {
 		return new Flesch(this);
 	}
 	
+	public Smog getSmog() {
+		return new Smog(this);
+	}
+
 	public Word[] splitWords() {
 		return Arrays.stream(text.split("\\W"))
 			.filter(a -> !a.isBlank())

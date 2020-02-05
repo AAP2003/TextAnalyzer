@@ -1,4 +1,4 @@
-public class Flesch extends ReadabilitryScorer {
+public class Flesch extends ReadabilityScorer {
 	public Flesch(TextAnalyzer text) {
 		super(text);
 	}

@@ -15,6 +15,7 @@ public class Tester {
 		TextAnalyzer analyze = new TextAnalyzer("test_files\\Gettysburg.txt");
 
 		System.out.println(analyze.getFlesch().getReadabilityScore());
+		System.out.println(analyze.getSmog().getReadabilityScore());
 
 		//new Tester();
 	}
