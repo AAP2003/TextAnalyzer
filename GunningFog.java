@@ -13,6 +13,10 @@ public class GunningFog extends ReadabilityScorer {
 		return 0.4 * (numWords / numSentences + 100 * numComplexWords / numWords);
 	}
 
+	public String getScorerName() {
+		return "Gunning Fog";
+	}
+
 	private long numWordsOverThreeSyllables() {
 		return Arrays.stream(text.splitWords())
 			.filter(a -> a.countSyllables() >= 3)

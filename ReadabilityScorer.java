@@ -7,4 +7,6 @@ public abstract class ReadabilityScorer {
 	
 	// Abstract methods
 	public abstract double getReadabilityScore();
+	public abstract String getScorerName();
 }
+

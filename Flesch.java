@@ -10,5 +10,9 @@ public class Flesch extends ReadabilityScorer {
 
 		return 206.835 - (numWords / numSentences * 1.015) - (numSyllables / numWords * 84.6);
 	}
+	
+	public String getScorerName() {
+		return "Flesch";
+	}
 }
 

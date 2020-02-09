@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 
 public class TextAnalyzer {
+	
 	private String text;
 
 	public TextAnalyzer() {
@@ -32,6 +33,19 @@ public class TextAnalyzer {
 
 	public String getText() {
 		return text;
+	}
+	
+	public ReadabilityScorer getReadabilityScorer(ScoringIndex index) {
+		switch (index) {
+			case FLESCH:
+				return getFlesch();
+			case SMOG:
+				return getSmog();
+			case GUNNING_FOG:
+				return getGunningFog();
+			default:
+				return null;
+		}
 	}
 
 	public ReadabilityScorer getFlesch() {
