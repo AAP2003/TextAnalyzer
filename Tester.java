@@ -12,19 +12,8 @@ public class Tester {
 	}
 
 	public static void main(String[] args) {
-		TextAnalyzer analyze;
-		ReadabilityScorer scorer;
-
 		for (String fileName : new String[] {"Gettysburg.txt", "test-6th-grader.txt", "test-college-grad.txt"}) {
-			analyze = new TextAnalyzer("test_files\\" + fileName);
-			System.out.println("\n" + fileName);
-			
-			for (ScoringIndex index : ScoringIndex.values()) {
-				scorer = analyze.getReadabilityScorer(index);
-				System.out.println(scorer.getScorerName());
-				System.out.println("Readability Score: " + scorer.getReadabilityScore());
-				System.out.println("Reading Level: " + scorer.getReadingLevel());
-			}
+			System.out.println("\n" + (new TextAnalyzer("test_files\\" + fileName)).toString());
 		}
 
 		//new Tester();

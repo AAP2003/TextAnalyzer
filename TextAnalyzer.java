@@ -4,13 +4,13 @@ import java.io.File;
 
 public class TextAnalyzer {
 	
+	private final String fileName;
+
 	private String text;
 
-	public TextAnalyzer() {
-		text = new String();
-	}
-
 	public TextAnalyzer(String fileName) {
+		this.fileName = fileName;
+		
 		try {
 			this.text = "";
 
@@ -35,6 +35,16 @@ public class TextAnalyzer {
 		return text;
 	}
 	
+	public String toString() {
+		String out = fileName;
+			
+		for (ScoringIndex index : ScoringIndex.values()) {
+			out += "\n" + getReadabilityScorer(index).toString();
+		}
+
+		return out;
+	}
+
 	public ReadabilityScorer getReadabilityScorer(ScoringIndex index) {
 		switch (index) {
 			case FLESCH:

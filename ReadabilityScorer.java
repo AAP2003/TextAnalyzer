@@ -5,6 +5,10 @@ public abstract class ReadabilityScorer {
 		this.text = text;
 	}
 	
+	public String toString() {
+		return getScorerName() + "\nScore: " + getReadabilityScore() + "\nLevel: " + getReadingLevel();
+	}
+
 	// Abstract methods
 	public abstract double getReadabilityScore();
 	public abstract String getScorerName();
