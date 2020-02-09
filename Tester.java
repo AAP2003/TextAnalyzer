@@ -23,6 +23,7 @@ public class Tester {
 				scorer = analyze.getReadabilityScorer(index);
 				System.out.println(scorer.getScorerName());
 				System.out.println("Readability Score: " + scorer.getReadabilityScore());
+				System.out.println("Reading Level: " + scorer.getReadingLevel());
 			}
 		}
 
