@@ -6,7 +6,7 @@ public class Smog extends ReadabilityScorer {
 	}
 	
 	public double getReadabilityScore() {
-		return 3 + Math.pow(numWordsOverThreeSyllables(), 0.5) * (10.0 / text.countSentences());
+		return 1.0430 * Math.pow(30.0 * (double) numWordsOverThreeSyllables() / (double) text.countSentences(), 0.5) + 3.1291;
 	}
 
 	private long numWordsOverThreeSyllables() {
