@@ -34,12 +34,16 @@ public class TextAnalyzer {
 		return text;
 	}
 
-	public Flesch getFlesch() {
+	public ReadabilityScorer getFlesch() {
 		return new Flesch(this);
 	}
 	
-	public Smog getSmog() {
+	public ReadabilityScorer getSmog() {
 		return new Smog(this);
+	}
+
+	public ReadabilityScorer getGunningFog() {
+		return new GunningFog(this);
 	}
 
 	public Word[] splitWords() {

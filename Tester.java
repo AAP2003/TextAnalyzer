@@ -16,6 +16,7 @@ public class Tester {
 
 		System.out.println(analyze.getFlesch().getReadabilityScore());
 		System.out.println(analyze.getSmog().getReadabilityScore());
+		System.out.println(analyze.getGunningFog().getReadabilityScore());
 
 		//new Tester();
 	}
