@@ -12,11 +12,15 @@ public class Tester {
 	}
 
 	public static void main(String[] args) {
-		TextAnalyzer analyze = new TextAnalyzer("test_files\\Gettysburg.txt");
+		TextAnalyzer analyze;
 
-		System.out.println(analyze.getFlesch().getReadabilityScore());
-		System.out.println(analyze.getSmog().getReadabilityScore());
-		System.out.println(analyze.getGunningFog().getReadabilityScore());
+		for (String fileName : new String[] {"Gettysburg.txt", "test-6th-grader.txt", "test-college-grad.txt"}) {
+			analyze = new TextAnalyzer("test_files\\" + fileName);
+			System.out.println(fileName);
+			System.out.println(analyze.getFlesch().getReadabilityScore());
+			System.out.println(analyze.getSmog().getReadabilityScore());
+			System.out.println(analyze.getGunningFog().getReadabilityScore());
+		}
 
 		//new Tester();
 	}
