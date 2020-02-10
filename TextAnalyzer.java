@@ -34,7 +34,11 @@ public class TextAnalyzer {
 	public String getText() {
 		return text;
 	}
-	
+
+	public String getFileName() {
+		return fileName;
+	}
+
 	public String toString() {
 		String out = fileName;
 			
