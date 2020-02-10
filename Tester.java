@@ -2,22 +2,27 @@ import javax.swing.*;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.stream.*;
+import java.awt.Font;
 
 public class Tester {
 	private JFrame frame;
 	private JTable table;
 	private JScrollPane sp;
+	private Font font;
 
 	public Tester() {
 		for (String fileName : new String[] {"Gettysburg.txt", "test-6th-grader.txt", "test-college-grad.txt"}) {
 			System.out.println("\n" + (new TextAnalyzer("test_files\\" + fileName)).toString());
 		}
 		
+		font = new Font("Tahome", Font.PLAIN, 18);
+
 		frame = new JFrame();
-		frame.setSize(300, 300);
+		frame.setSize(1000, 500);
+		frame.setTitle("Text Analyzer");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		Object data[][] = new Object[15][6];
+		Object data[][] = new Object[14][6];
 		
 		int shift = 0;
 		
@@ -36,7 +41,7 @@ public class Tester {
 			int shiftScorer = 3;
 			for (ScoringIndex v : ScoringIndex.values()) {
 				ReadabilityScorer scorer = analyze.getReadabilityScorer(v);
-				data[shift + 1][shiftScorer] = scorer.getReadabilityScore();
+				data[shift + 1][shiftScorer] = (int) scorer.getReadabilityScore();
 				data[shift + 2][shiftScorer] = scorer.getReadingLevel();
 				++shiftScorer;
 			}
@@ -44,6 +49,10 @@ public class Tester {
 		}
 		
 		table = new JTable(data, new Object[] {"", "Stats", "", "Flesch", "Smog", "Gunning Fog"});
+		table.setFont(font);
+		table.getTableHeader().setFont(font);
+		table.setRowHeight(30);
+
 		sp = new JScrollPane(table);
 		
 		frame.add(sp);
