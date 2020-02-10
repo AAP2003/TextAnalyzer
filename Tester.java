@@ -17,7 +17,7 @@ public class Tester {
 		frame.setSize(300, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		Object data[][] = new Object[12][4];
+		Object data[][] = new Object[15][6];
 		
 		int shift = 0;
 		
@@ -25,22 +25,25 @@ public class Tester {
 			TextAnalyzer analyze = new TextAnalyzer("test_files\\" + fileName);
 			
 			data[shift][0] = fileName;
-			data[shift + 1][0] = "Score:";
-			data[shift + 2][0] = "Level:";
-			int shiftScorer = 1;
+			data[shift + 1][0] = "# of Syllables:";
+			data[shift + 2][0] = "# of Words:";
+			data[shift + 3][0] = "# of Sentences:";	
+			data[shift + 1][1] = analyze.countSyllables();
+			data[shift + 2][1] = analyze.countWords();
+			data[shift + 3][1] = analyze.countSentences();	
+			data[shift + 1][2] = "Score:";
+			data[shift + 2][2] = "Level:";
+			int shiftScorer = 3;
 			for (ScoringIndex v : ScoringIndex.values()) {
 				ReadabilityScorer scorer = analyze.getReadabilityScorer(v);
-
-				data[shift][shiftScorer]= scorer.getScorerName();
 				data[shift + 1][shiftScorer] = scorer.getReadabilityScore();
 				data[shift + 2][shiftScorer] = scorer.getReadingLevel();
 				++shiftScorer;
 			}
-			shift += 4;
+			shift += 5;
 		}
 		
-		table = new JTable(data, new Object[] {"", "", "", ""});
-		table.getTableHeader().setUI(null);
+		table = new JTable(data, new Object[] {"", "Stats", "", "Flesch", "Smog", "Gunning Fog"});
 		sp = new JScrollPane(table);
 		
 		frame.add(sp);
