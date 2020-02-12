@@ -57,6 +57,8 @@ public class TextAnalyzer {
 				return getSmog();
 			case GUNNING_FOG:
 				return getGunningFog();
+			case AUTOMATED:
+				return getAutomated();
 			default:
 				return null;
 		}
@@ -72,6 +74,10 @@ public class TextAnalyzer {
 
 	public ReadabilityScorer getGunningFog() {
 		return new GunningFog(this);
+	}
+
+	public ReadabilityScorer getAutomated() {
+		return new Automated(this);
 	}
 
 	public Word[] splitWords() {
@@ -105,6 +111,12 @@ public class TextAnalyzer {
 		}
 
 		return syllables;
+	}
+
+	public int countCharacters() {
+		return Arrays.stream(splitWords())
+			.map(a -> a.getWord().length())
+			.reduce(0, (a, b) -> a + b);
 	}
 }
 

@@ -2,6 +2,7 @@
 public enum ScoringIndex {
 	FLESCH,
        	SMOG,
-       	GUNNING_FOG
+       	GUNNING_FOG,
+	AUTOMATED
 }
 
